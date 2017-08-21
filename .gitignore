@@ -1,5 +1,6 @@
 #maven
 System_Under_Test/target/
+QA_Framework/target/
 target/
 node_modules/
 pom.xml.tag
@@ -27,6 +28,7 @@ hs_err_pid*
 
 #idea
 System_Under_Test/.idea/*
+QA_Framework/.idea/*
 .idea/*
 *.iml
 

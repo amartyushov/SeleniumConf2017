@@ -29,4 +29,9 @@ public class UserRepository {
     public User getByName(String name) {
         return users.get(name);
     }
+
+    public void deleteUsers() {
+        users = new HashMap<>();
+        log.info("Users were deleted");
+    }
 }

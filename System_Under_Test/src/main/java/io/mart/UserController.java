@@ -25,7 +25,7 @@ public class UserController {
     @ApiResponses({
             @ApiResponse(code = 201, message = "Created user")
     })
-    User createUser(@RequestBody User user) {
+    public User createUser(@RequestBody User user) {
         return repository.createUsers(user);
     }
 
@@ -35,7 +35,7 @@ public class UserController {
     })
     @RequestMapping(value = "/users", method = RequestMethod.GET)
     @ResponseBody
-    Collection<User> allUsers() {
+    public Collection<User> allUsers() {
         return repository.allUsers();
     }
 
@@ -45,7 +45,20 @@ public class UserController {
             @ApiResponse(code = 200, message = "Found user by given name")
     })
     @ResponseBody
-    User getUserByName(@PathVariable("name") String name) {
+    public User getUserByName(@PathVariable("name") String name) {
         return repository.getByName(name);
     }
+
+    @RequestMapping(value = "/users", method = RequestMethod.DELETE)
+    @ApiOperation(nickname = "deleteUsers", value = "Delete all users", notes = "", response = String.class)
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "All Users deleted")
+    })
+    @ResponseBody
+    public String deleteUsers() {
+        repository.deleteUsers();
+        return "All users deleted";
+    }
+
+
 }

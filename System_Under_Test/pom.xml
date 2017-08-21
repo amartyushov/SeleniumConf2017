@@ -55,7 +55,6 @@
         </dependency>
 
 
-
         <dependency>
             <groupId>info.cukes</groupId>
             <artifactId>cucumber-java</artifactId>
@@ -126,26 +125,56 @@
                     </execution>
                 </executions>
             </plugin>
-            <!--<plugin>
+            <plugin>
                 <groupId>io.swagger</groupId>
-                <artifactId>swagger-codegen-maven-plugin</artifactId> &lt;!&ndash; generates java classes out of swagger json&ndash;&gt;
+                <artifactId>swagger-codegen-maven-plugin</artifactId> <!-- generates java classes out of swagger json-->
                 <version>2.2.2</version>
                 <executions>
                     <execution>
-                        <phase>compile</phase>
+                        <phase>package</phase>
                         <goals>
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <inputSpec>${project.build.directory}/swagger-ui/</inputSpec>
+                            <inputSpec>${project.build.directory}/swagger-ui/swagger.json</inputSpec>
                             <language>java</language>
                             <configOptions>
-                                <sourceFolder>src/gen/java/main</sourceFolder>
+                                <dateLibrary>joda</dateLibrary>
                             </configOptions>
+                            <library>jersey2</library>
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>-->
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-invoker-plugin</artifactId>
+                <version>2.0.0</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>install</goal>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <debug>true</debug>
+                            <streamLogs>true</streamLogs>
+                            <projectsDirectory>${project.build.directory}/generated-sources</projectsDirectory>
+                            <goals>
+                                <goal>install</goal>
+                            </goals>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 </project>
+
+<!--
+1. mvn clean install
+2. go to ${project.build.directory}/generated-sources/swagger
+3. mvn clean install
+4. add as a dependency io.swagger:swagger-java-client:1.0.0 to QA framework
+ -->

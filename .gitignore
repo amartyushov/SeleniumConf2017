@@ -1,5 +1,6 @@
 #maven
-seleniumConf17/target/
+System_Under_Test/target/
+target/
 node_modules/
 pom.xml.tag
 pom.xml.releaseBackup
@@ -25,7 +26,8 @@ buildNumber.properties
 hs_err_pid*
 
 #idea
-seleniumConf17/.idea/*
+System_Under_Test/.idea/*
+.idea/*
 *.iml
 
 .DS_Store

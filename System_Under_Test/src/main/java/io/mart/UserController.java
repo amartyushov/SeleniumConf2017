@@ -1,6 +1,7 @@
 package io.mart;
 
 import io.mart.dto.User;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
@@ -12,6 +13,7 @@ import java.util.Collection;
 import java.util.List;
 
 @Controller
+@Api(value = "users", description = "Endpoint for users management", tags = "Users")
 public class UserController {
 
     @Autowired
@@ -19,25 +21,31 @@ public class UserController {
 
     @RequestMapping(value = "/user", method = RequestMethod.POST)
     @ResponseBody
-    @ApiOperation(nickname = "createUser", value = "Create a user", notes = "", response = User.class)
-    @ApiResponses(value = {@ApiResponse(code = 200, message = "An array with failed indexes"),
-            @ApiResponse(code = 400, message = "")})
-    User createUser(@RequestBody User user){
+    @ApiOperation(nickname = "createUser", value = "Create an user", notes = "", response = User.class)
+    @ApiResponses({
+            @ApiResponse(code = 201, message = "Created user")
+    })
+    User createUser(@RequestBody User user) {
         return repository.createUsers(user);
     }
 
-    @ApiOperation(nickname = "getUsers", value = "Get users", notes = "", response = User.class, responseContainer = "List")
-    @ApiResponses(value = {@ApiResponse(code = 200, message = "An array with failed indexes"),
-            @ApiResponse(code = 400, message = "")})
+    @ApiOperation(nickname = "getAllUsers", value = "Gets all users", notes = "", response = User.class, responseContainer = "List")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "List of all users")
+    })
     @RequestMapping(value = "/users", method = RequestMethod.GET)
     @ResponseBody
-    Collection<User> allUsers(){
+    Collection<User> allUsers() {
         return repository.allUsers();
     }
 
     @RequestMapping(value = "/user/{name}", method = RequestMethod.GET)
+    @ApiOperation(nickname = "getUserByName", value = "Get user by name", notes = "", response = User.class)
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "Found user by given name")
+    })
     @ResponseBody
-    User getUserByName(@PathVariable("name") String name){
+    User getUserByName(@PathVariable("name") String name) {
         return repository.getByName(name);
     }
 }

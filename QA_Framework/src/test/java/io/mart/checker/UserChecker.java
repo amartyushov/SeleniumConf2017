@@ -1,11 +1,12 @@
 package io.mart.checker;
 
 import io.swagger.client.model.User;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@Service
+@Component
 public class UserChecker {
 
     public void userHasName(User actualresult, String expectedName){

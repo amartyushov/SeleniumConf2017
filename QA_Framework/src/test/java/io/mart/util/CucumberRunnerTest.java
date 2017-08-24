@@ -5,7 +5,7 @@ import cucumber.api.SnippetType;
 import cucumber.api.junit.Cucumber;
 import org.junit.runner.RunWith;
 
-@RunWith(Cucumber.class)
+@RunWith(CucumberCustomRunner.class)
 @CucumberOptions(
         glue = "io.mart.steps",
         features = "classpath:cucumber",

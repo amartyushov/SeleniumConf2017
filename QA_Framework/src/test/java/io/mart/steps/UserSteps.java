@@ -1,5 +1,6 @@
 package io.mart.steps;
 
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import io.mart.util.KeyValueHolder;
@@ -18,5 +19,10 @@ public class UserSteps extends AbstractSteps {
     @Then("^user has name \"([^\"]*)\"$")
     public void userHasName(String name) throws Throwable {
         userChecker.userHasName((User) resultHolder.getResult(), name);
+    }
+
+    @And("^wait for (\\d+) seconds")
+    public void waitForSeconds(int timeout) throws Throwable {
+        Thread.sleep(timeout * 1000);
     }
 }

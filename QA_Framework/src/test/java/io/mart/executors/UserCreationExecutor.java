@@ -5,9 +5,9 @@ import io.swagger.client.ApiException;
 import io.swagger.client.api.UsersApi;
 import io.swagger.client.model.User;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Controller;
 
-@Service
+@Controller
 @Slf4j
 public class UserCreationExecutor {
 
@@ -28,7 +28,7 @@ public class UserCreationExecutor {
         try {
             usersApi.deleteUsers();
         } catch (ApiException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException(e.getCause());
         }
     }
 }

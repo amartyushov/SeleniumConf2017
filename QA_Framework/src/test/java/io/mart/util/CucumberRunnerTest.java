@@ -16,3 +16,5 @@ import org.junit.runner.RunWith;
 )
 public class CucumberRunnerTest {
 }
+
+//mvn clean test -Dcucumber.options="--tags @deleteAll --plugin html:target/cucumber-html-report-myReport"

@@ -1,5 +1,6 @@
 package io.mart.steps;
 
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import io.mart.util.KeyValueHolder;
@@ -18,5 +19,20 @@ public class UserSteps extends AbstractSteps {
     @Then("^user has name \"([^\"]*)\"$")
     public void userHasName(String name) throws Throwable {
         userChecker.userHasName((User) resultHolder.getResult(), name);
+    }
+
+    @And("^I start application$")
+    public void iStartApplication() throws Throwable {
+        executor.startApplication();
+    }
+
+    @And("^I input login$")
+    public void iInputLogin() throws Throwable {
+        executor.inputLogin();
+    }
+
+    @And("^I input password$")
+    public void iInputPassword() throws Throwable {
+        executor.inputPassword();
     }
 }

@@ -7,4 +7,15 @@
 
     <context:component-scan base-package="io.mart"/>
 
+    <alias name="${mobile.app}" alias="app"/>
+
+    <bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
+        <property name="ignoreUnresolvablePlaceholders" value="true"/>
+        <property name="locations">
+            <list>
+                <value>classpath:application.properties</value>
+            </list>
+        </property>
+    </bean>
+
 </beans>

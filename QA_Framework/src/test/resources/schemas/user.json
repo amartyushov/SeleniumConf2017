@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "properties": {
+    "address": {
+      "properties": {
+        "country": {
+          "type": "string"
+        },
+        "street": {
+          "type": "string"
+        },
+        "zip": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "books": {
+      "items": {
+        "properties": {
+          "author": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "name": {
+      "type": "string"
+    },
+    "pushNotificationMessage": {
+      "type": "string"
+    }
+  },
+  "type": "object",
+  "required": [
+    "address",
+    "books",
+    "name",
+    "pushNotificationMessage"
+  ]
+}

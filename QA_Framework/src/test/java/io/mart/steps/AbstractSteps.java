@@ -1,6 +1,7 @@
 package io.mart.steps;
 
 import io.mart.checker.UserChecker;
+import io.mart.executors.MockServiceExecutor;
 import io.mart.executors.UserCreationExecutor;
 import io.mart.providers.UserProvider;
 import io.mart.util.ResultHolder;
@@ -19,5 +20,8 @@ public class AbstractSteps {
 
     @Autowired
     public ResultHolder resultHolder;
+
+    @Autowired
+    public MockServiceExecutor mockServiceExecutor;
 
 }

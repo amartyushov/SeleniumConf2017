@@ -23,12 +23,30 @@ public class UserCreationExecutor {
         }
     }
 
+    public User getUserByName(String name){
+        log.info("EXECUTOR: getting user by name {}", name);
+        try {
+            return usersApi.getUserByName(name);
+        } catch (ApiException e) {
+            throw new RuntimeException(e.getMessage());
+        }
+    }
+
     public void deleteUsers(){
-        log.info("Deleting all users");
+        log.info("EXECUTOR: Deleting all users");
         try {
             usersApi.deleteUsers();
         } catch (ApiException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    public User sendingPushNotification(User user){
+        log.info("EXECUTOR: Sending push notification to user {}", user);
+        try {
+            return usersApi.notifyUser(user);
+        } catch (ApiException e) {
+            throw new RuntimeException(e.getMessage());
         }
     }
 }

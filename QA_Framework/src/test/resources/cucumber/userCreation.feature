@@ -1,8 +1,12 @@
 @deleteAll
-Feature: create user
+Feature: Check push notification
 
-  Scenario: check user is not null
+  Scenario: Check user service calls push notification service
+
     Given create user with params
-      | key  | value |
-      | name | Alex  |
-    Then user has name "Alex"
+      | key                     | value |
+      | name                    | Alex  |
+      | pushNotificationMessage | push  |
+    And user has name "Alex"
+    And send push notification to user "Alex"
+    And Mock was called to notify user "Alex"

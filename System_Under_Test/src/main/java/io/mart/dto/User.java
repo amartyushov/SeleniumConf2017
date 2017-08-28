@@ -12,4 +12,5 @@ public class User {
     private Address address;
     private List<Book> books;
     private String name;
+    private String pushNotificationMessage;
 }

@@ -1,4 +1,4 @@
-@deleteAll
+@deleteAll @bm
 Feature: create user
 
   Scenario: check user is not null

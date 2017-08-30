@@ -8,7 +8,16 @@ public class Hooks extends AbstractSteps{
 
     @Before("@deleteAll")
     public void deleteAll(){
+        cleanUpExecutor.deleteAll();
         log.info("Executing @deleteAll hook");
         userExecutor.deleteUsers();
     }
+
+    @Before("@hook")
+    public void hook(){
+        cleanUpExecutor.deleteAll();
+        log.info("I am in hook");
+    }
+
+
 }

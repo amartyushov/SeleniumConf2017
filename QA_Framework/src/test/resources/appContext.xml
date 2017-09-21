@@ -7,4 +7,6 @@
 
     <context:component-scan base-package="io.mart"/>
 
+    <bean class="io.mart.util.CustomRuntime" factory-method="getInstance"/>
+
 </beans>

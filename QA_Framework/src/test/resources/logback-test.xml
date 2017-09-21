@@ -26,7 +26,8 @@
         </encoder>
     </appender>
 
-    <logger name="org.springframework.jdbc.datasource" level="WARN"/>
+    <logger name="org.springframework" level="WARN"/>
+    <logger name="org.apache" level="WARN"/>
 
     <root level="INFO">
         <appender-ref ref="FILE" />

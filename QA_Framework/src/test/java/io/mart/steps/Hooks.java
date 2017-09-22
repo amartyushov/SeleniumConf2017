@@ -16,7 +16,7 @@ public class Hooks extends AbstractSteps{
     @Before("@hook")
     public void hook(){
         cleanUpExecutor.deleteAll();
-        log.info("I am in hook");
+        log.info("Do test data preparation");
     }
 
 

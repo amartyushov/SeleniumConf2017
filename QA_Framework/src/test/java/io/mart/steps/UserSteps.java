@@ -26,6 +26,6 @@ public class UserSteps extends AbstractSteps {
 
     @And("^do nothing$")
     public void doNothing() throws Throwable {
-        log.info("Doing nothing");
+        log.info("Step implementation");
     }
 }

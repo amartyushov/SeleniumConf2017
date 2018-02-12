@@ -26,10 +26,13 @@
         </encoder>
     </appender>
 
+    <appender name="DELEGATE" class="io.mart.util.DelegateAppender"/>
+
     <logger name="org.springframework.jdbc.datasource" level="WARN"/>
 
     <root level="INFO">
         <appender-ref ref="FILE" />
         <appender-ref ref="STDOUT" />
+        <appender-ref ref="DELEGATE" />
     </root>
 </configuration>

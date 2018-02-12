@@ -26,10 +26,13 @@
         </encoder>
     </appender>
 
+    <appender name="SCENARIO" class="io.mart.util.ScenarioAppender"/>
+
     <logger name="org.springframework.jdbc.datasource" level="WARN"/>
 
     <root level="INFO">
         <appender-ref ref="FILE" />
         <appender-ref ref="STDOUT" />
+        <appender-ref ref="SCENARIO" />
     </root>
 </configuration>
